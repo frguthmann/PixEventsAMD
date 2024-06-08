@@ -1,3 +1,11 @@
+# PixEventsAMD
+
+This fork of the PixEvents repository contains the modifications required for PIX markers to appear in the AMD Radeon Developer Tools. The only modifications made are the ones described here: https://radeon-gpuprofiler.readthedocs.io/en/latest/#user-debug-markers. A prebuilt DLL is provided as a convenience in the releases section.
+
+This fork is provided as is by the author and is not an official repository from either AMD or Microsoft.
+
+# Table of contents
+
 - [PixEvents](#pixevents)
   - [Usage](#usage)
     - [Recommendations for game/application developers](#recommendations-for-gameapplication-developers)

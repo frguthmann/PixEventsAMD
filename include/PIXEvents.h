@@ -24,7 +24,11 @@
 
  // Xbox does not support CPU events for retail scenarios
 #if defined(USE_PIX) || !defined(PIX_XBOX)
-#define PIX_CONTEXT_EMIT_CPU_EVENTS
+    #define PIX_CONTEXT_EMIT_CPU_EVENTS
+    #ifndef PIX_XBOX
+        #include "AmdDxExt\AmdPix3.h"
+        #define PIX_AMD_EXT
+    #endif
 #endif
 
 namespace PIXEventsDetail
@@ -411,7 +415,11 @@ namespace PIXEventsDetail
         UINT8 eventSize = 0u;
 
 #ifdef PIX_CONTEXT_EMIT_CPU_EVENTS
+#ifdef PIX_AMD_EXT
+        RgpPIXBeginEventOnContextCpu(destination, eventSize, context, color, formatString, args...);
+#else
         PIXBeginEventOnContextCpu(destination, eventSize, context, color, formatString, args...);
+#endif
 #endif
 
 #ifdef PIX_USE_GPU_MARKERS_V2
@@ -643,7 +651,11 @@ namespace PIXEventsDetail
         UINT8 eventSize = 0u;
 
 #ifdef PIX_CONTEXT_EMIT_CPU_EVENTS
+#ifdef PIX_AMD_EXT
+        RgpPIXSetMarkerOnContextCpu(destination, eventSize, context, color, formatString, args...);
+#else
         PIXSetMarkerOnContextCpu(destination, eventSize, context, color, formatString, args...);
+#endif
 #endif
 
 #ifdef PIX_USE_GPU_MARKERS_V2
@@ -909,7 +921,11 @@ namespace PIXEventsDetail
     {
         UINT64* destination = nullptr;
 #ifdef PIX_CONTEXT_EMIT_CPU_EVENTS
+#ifdef PIX_AMD_EXT
+        RgpPIXEndEventOnContextCpu(destination, context);
+#else
         destination = PIXEndEventOnContextCpu(context);
+#endif
 #endif
 
 #ifdef PIX_USE_GPU_MARKERS_V2

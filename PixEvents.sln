@@ -20,6 +20,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinPixEventRuntime.test", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "include", "include", "{66364AD2-B160-4B63-849F-FE3B0CC5FBF0}"
 	ProjectSection(SolutionItems) = preProject
+		include\AmdDxExt\AmdExtD3D.h = include\AmdDxExt\AmdExtD3D.h
+		include\AmdDxExt\AmdExtD3DCommandListMarkerApi.h = include\AmdDxExt\AmdExtD3DCommandListMarkerApi.h
+		include\AmdDxExt\AmdExtD3DDeviceApi.h = include\AmdDxExt\AmdExtD3DDeviceApi.h
+		include\AmdDxExt\AmdPix3.h = include\AmdDxExt\AmdPix3.h
 		include\pix3.h = include\pix3.h
 		include\pix3_win.h = include\pix3_win.h
 		include\PIXEvents.h = include\PIXEvents.h
